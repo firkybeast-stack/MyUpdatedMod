@@ -1,0 +1,24 @@
+/* Decompiler 70ms, total 318ms, lines 24 */
+package net.uku3lig.betterhurtcam;
+
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+import net.fabricmc.api.ModInitializer;
+import net.minecraft.class_310;
+
+public class BetterHurtCam implements ModInitializer {
+   public static boolean a = true;
+   public static boolean b = false;
+   private static final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+
+   public static void scheduleTask(Runnable task, int ticksDelay) {
+      long delayMs = (long)ticksDelay * 50L;
+      scheduler.schedule(() -> {
+         class_310.method_1551().execute(task);
+      }, delayMs, TimeUnit.MILLISECONDS);
+   }
+
+   public void onInitialize() {
+   }
+}

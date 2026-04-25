@@ -1,0 +1,44 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabricmc.net/releases' }
+    }
+    dependencies {
+        classpath 'net.fabricmc:fabric-loom-gradle:1.0.0'
+    }
+}
+
+apply plugin: 'net.fabricmc.loom'
+
+version = '1.0.0'
+group = 'net.uku3lig.betterhurtcam'
+archivesBaseName = 'betterhurtcam'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.fabricmc.net/' }
+}
+
+dependencies {
+    minecraft 'com.mojang:minecraft:1.20.11'
+    mappings 'net.fabricmc:yarn:1.20.11+build.1:v2'
+    modImplementation 'net.fabricmc:fabric-loader:0.15.0'
+    modImplementation 'net.fabricmc:fabric-api:fabric-api-0.91.0+1.20.11'
+}
+
+processResources {
+    inputs.property 'version', project.version
+    
+    filesMatching('fabric.mod.json') {
+        expand 'version':project.version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 17
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+    withSourcesJar()
+}

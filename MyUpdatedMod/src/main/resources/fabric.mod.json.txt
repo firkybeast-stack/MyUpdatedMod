@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "ferritecore",
+  "version": "7.0.0",
+  "name": "FerriteCore",
+  "description": "Reduces memory usage",
+  "icon": "icon.png",
+  "authors": [
+    "malte0811"
+  ],
+  "contact": {
+    "issues": "https://github.com/malte0811/FerriteCore/issues",
+    "source": "https://github.com/malte0811/FerriteCore",
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/ferritecore-fabric"
+  },
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.uku3lig.betterhurtcam.BetterHurtCam"
+    ]
+  },
+  "mixins": [
+    "mixins.json"
+  ],
+  "depends": {
+    "minecraft": "\u003e\u003d1.21",
+    "fabricloader": "\u003e\u003d0.15",
+    "fabric-key-binding-api-v1": "*"
+  },
+  "jars": [
+    {
+      "file": "jars/fabric-key-binding-api-v1-1.0.36+fb8d95da27.jar"
+    },
+    {
+      "file": "META-INF/jars/fabric-key-binding-api-v1-1.0.65+946bf4c32c.jar"
+    }
+  ]
+}
